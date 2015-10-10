@@ -6,17 +6,17 @@
 
 abstract class Array_Typed implements ArrayAccess {
     protected $container;
-    protected $arrayCount;
+    protected $arraySize;
     // protected $typeSize;
     function __construct($n) {
-        $this->arrayCount = $n;
+        $this->arraySize = $n;
         $this->container = str_repeat("\0",  $n * $this->typeSize);
     }
     //
     function toArray() {
         $arr = array();
-        $arrayCount = $this->arrayCount;
-        for ($i = 0 ; $i < $arrayCount ; $i++) {
+        $arraySize = $this->arraySize;
+        for ($i = 0 ; $i < $arraySize ; $i++) {
             $arr []= $this->offsetGet($i);
         }
         return $arr;
@@ -30,11 +30,11 @@ abstract class Array_Typed implements ArrayAccess {
         return $newArr;
     }
     public function getSize() {
-        return $this->arrayCount;
+        return $this->arraySize;
     }
     //
     public function offsetExists($offset) {
-        if (($offset < 0) || ($this->arrayCount <= $offset)) {
+        if (($offset < 0) || ($this->arraySize <= $offset)) {
             return false;
         }
         return true;
@@ -58,8 +58,8 @@ abstract class Array_Typed implements ArrayAccess {
     public function offsetUnset($offset) {
         ;
     }
-    protected function containerSize($arrayCount) {
-        return $arrayCount * $this->typeSize;
+    protected function containerSize($arraySize) {
+        return $arraySize * $this->typeSize;
     }
     // utility method
     public function slice($offset, $size) {
@@ -72,7 +72,7 @@ abstract class Array_Typed implements ArrayAccess {
         return implode($glue, $arr);
     }
     public function shuffle($glue) {
-        $count = $this->getSize();
+        $count = $this->arraySize;
         $arr = $this->toArray();
         shuffle($arr);
         for ($i = 0 ; $i < $count ; $i++) {
