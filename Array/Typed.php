@@ -29,6 +29,9 @@ abstract class Array_Typed implements ArrayAccess {
         }
         return $newArr;
     }
+    public function getSize() {
+        return $this->arrayCount;
+    }
     //
     public function offsetExists($offset) {
         if (($offset < 0) || ($this->arrayCount <= $offset)) {
@@ -59,4 +62,21 @@ abstract class Array_Typed implements ArrayAccess {
         return $arrayCount * $this->typeSize;
     }
     // utility method
+    public function slice($offset, $size) {
+        $arr = $this->toArray();
+        $arr = array_slice($arr, $offset, $size);
+        return self::fromArray($arr);
+    }
+    public function join($glue) {
+        $arr = $this->toArray();
+        return implode($glue, $arr);
+    }
+    public function shuffle($glue) {
+        $count = $this->getSize();
+        $arr = $this->toArray();
+        shuffle($arr);
+        for ($i = 0 ; $i < $count ; $i++) {
+            $this->offsetSet($i, $arr[$i]);
+        }
+    }
 }
