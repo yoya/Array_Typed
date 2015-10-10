@@ -22,6 +22,13 @@ function perf_end() {
     echo '  time:'  . (microtime(true)    - $prev_time). PHP_EOL;
 }
 
+echo "# array()".PHP_EOL;
+perqf_begin();
+$arr = array();
+foreach (range(0, $arraySize - 1) as $i) { $arr[] = 255; }
+perf_end();
+$arr = null;
+
 echo "# SplFixedArray($arraySize)".PHP_EOL;
 perf_begin();
 $arr = new SplFixedArray($arraySize);
