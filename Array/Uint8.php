@@ -8,8 +8,8 @@ require_once __DIR__.'/Typed.php';
 
 class Array_Uint8 extends Array_Typed {
     protected $typeSize = 1; // int8
-    function __construct($n) {
-        parent::__construct($n);
+    function __construct($count) {
+        parent::__construct($count);
     }
     public function _offsetGet($offset) {
         return ord($this->container[$offset]);

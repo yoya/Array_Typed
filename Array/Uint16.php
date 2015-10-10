@@ -8,8 +8,8 @@ require_once __DIR__.'/Typed.php';
 
 class Array_Uint16 extends Array_Typed {
     protected $typeSize = 2; // int16
-    function __construct($n) {
-        parent::__construct($n);
+    function __construct($count) {
+        parent::__construct($count);
     }
     public function _offsetGet($offset) {
         $o = $this->containerSize($offset);
