@@ -1,0 +1,20 @@
+{
+    "name": "yoya/array_typed",
+    "type": "library",
+    "description": "Typed Array library",
+    "keywords": ["array", "typed"],
+    "homepage": "http://pwiki.awm.jp/~yoya/?Array_Typed",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "yoya",
+            "email": "yoya@awm.jp"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-0": { "Array_Typed": "." }
+    }
+}
