@@ -23,7 +23,7 @@ function perf_end() {
 }
 
 echo "# array()".PHP_EOL;
-perqf_begin();
+perf_begin();
 $arr = array();
 foreach (range(0, $arraySize - 1) as $i) { $arr[] = 255; }
 perf_end();
