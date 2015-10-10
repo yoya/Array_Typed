@@ -6,17 +6,17 @@
 
 abstract class Array_Typed implements ArrayAccess {
     protected $container;
-    protected $nContainer;
+    protected $arrayCount;
     // protected $typeSize;
     function __construct($n) {
-        $this->nContainer = $n;
+        $this->arrayCount = $n;
         $this->container = str_repeat("\0",  $n * $this->typeSize);
     }
     //
     function toArray() {
         $arr = array();
-        $nContainer = $this->nContainer;
-        for ($i = 0 ; $i < $nContainer ; $i++) {
+        $arrayCount = $this->arrayCount;
+        for ($i = 0 ; $i < $arrayCount ; $i++) {
             $arr []= $this->offsetGet($i);
         }
         return $arr;
@@ -31,7 +31,7 @@ abstract class Array_Typed implements ArrayAccess {
     }
     //
     public function offsetExists($offset) {
-        if (($offset < 0) || ($this->nContainer <= $offset)) {
+        if (($offset < 0) || ($this->arrayCount <= $offset)) {
             return false;
         }
         return true;
@@ -55,8 +55,8 @@ abstract class Array_Typed implements ArrayAccess {
     public function offsetUnset($offset) {
         ;
     }
-    protected function containerSize($nContainer) {
-        return $nContainer * $this->typeSize;
+    protected function containerSize($arrayCount) {
+        return $arrayCount * $this->typeSize;
     }
     // utility method
 }
