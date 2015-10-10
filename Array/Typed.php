@@ -45,5 +45,8 @@ abstract class Array_Typed implements ArrayAccess {
     public function offsetUnset($offset) {
         ;
     }
+    protected function containerSize($nContainer) {
+        return $nContainer * $this->typeSize;
+    }
     // utility method
 }
