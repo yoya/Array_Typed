@@ -3,7 +3,7 @@
 if (is_readable('vendor/autoload.php')) {
     require 'vendor/autoload.php';
 } else {
-    require_once 'Array/UINT8.php';
+    require_once 'Array/Uint8.php';
 }
 
 $prev_mem = $prev_time = null;
@@ -36,9 +36,9 @@ foreach (range(0, $arraySize - 1) as $i) { $arr[$i] = 255; }
 perf_end();
 $arr = null;
 
-echo "# Array_UINT8(1024)".PHP_EOL;
+echo "# Array_Uint8(1024)".PHP_EOL;
 perf_begin();
-$arr = new Array_UINT8($arraySize);
+$arr = new Array_Uint8($arraySize);
 foreach (range(0, $arraySize - 1) as $i) { $arr[$i] = 255; }
 perf_end();
 $arr = null;
