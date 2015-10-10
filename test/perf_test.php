@@ -22,7 +22,7 @@ function perf_end() {
     echo '  time:'  . (microtime(true)    - $prev_time). PHP_EOL;
 }
 
-echo "# array()".PHP_EOL;
+echo "# array() // $arraySize".PHP_EOL;
 perf_begin();
 $arr = array();
 foreach (range(0, $arraySize - 1) as $i) { $arr[] = 255; }
@@ -36,7 +36,7 @@ foreach (range(0, $arraySize - 1) as $i) { $arr[$i] = 255; }
 perf_end();
 $arr = null;
 
-echo "# Array_Uint8(1024)".PHP_EOL;
+echo "# Array_Uint8($arraySize)".PHP_EOL;
 perf_begin();
 $arr = new Array_Uint8($arraySize);
 foreach (range(0, $arraySize - 1) as $i) { $arr[$i] = 255; }
