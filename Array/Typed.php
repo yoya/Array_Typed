@@ -12,6 +12,7 @@ abstract class Array_Typed implements ArrayAccess {
         $this->nContainer = $n;
         $this->container = str_repeat("\0",  $n * $this->typeSize);
     }
+    //
     function toArray() {
         $arr = array();
         $nContainer = $this->nContainer;
@@ -20,6 +21,15 @@ abstract class Array_Typed implements ArrayAccess {
         }
         return $arr;
     }
+    static function fromArray($arr) {
+        $n = count($arr);
+        $newArr = new static($n);
+        for ($i = 0 ; $i < $n ; $i++) {
+            $newArr[$i] = $arr[$i];
+        }
+        return $newArr;
+    }
+    //
     public function offsetExists($offset) {
         if (($offset < 0) || ($this->nContainer <= $offset)) {
             return false;
