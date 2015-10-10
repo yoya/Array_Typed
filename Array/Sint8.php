@@ -4,7 +4,7 @@
   (c) 2015/10/10 yoya@awm.jp
 */
 
-require_once __DIR__.'/Typed.php';
+require_once __DIR__.'/Uint8.php';
 
 class Array_Sint8 extends Array_Uint8 {
     public function _offsetGet($offset) {
