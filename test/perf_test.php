@@ -21,6 +21,7 @@ function perf_end() {
     global $prev_mem, $prev_time;
     echo '  memory:'. (memory_get_usage() - $prev_mem )  . PHP_EOL;
     echo '  time:'  . (microtime(true)    - $prev_time). PHP_EOL;
+    echo PHP_EOL;
 }
 
 echo "# array() // $arraySize".PHP_EOL;
