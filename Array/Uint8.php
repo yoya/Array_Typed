@@ -6,8 +6,8 @@
 
 require_once __DIR__.'/Typed.php';
 
-class Array_UINT8 extends Array_Typed {
-    protected $typeSize = 1; // UINT8
+class Array_Uint8 extends Array_Typed {
+    protected $typeSize = 1; // int8
     function __construct($n) {
         parent::__construct($n);
     }

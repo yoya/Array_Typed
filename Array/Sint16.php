@@ -6,7 +6,7 @@
 
 require_once __DIR__.'/Typed.php';
 
-class Array_SINT16 extends Array_UINT16 {
+class Array_Sint16 extends Array_Uint16 {
     public function _offsetGet($offset) {
         $value = parent::_offsetGet($offset);
         if ($value < 0x8000) {
