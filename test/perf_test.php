@@ -4,6 +4,7 @@ if (is_readable('vendor/autoload.php')) {
     require 'vendor/autoload.php';
 } else {
     require_once 'Array/Uint8.php';
+    require_once 'Array/Sint16.php';
 }
 
 $prev_mem = $prev_time = null;
@@ -40,5 +41,12 @@ echo "# Array_Uint8($arraySize)".PHP_EOL;
 perf_begin();
 $arr = new Array_Uint8($arraySize);
 foreach (range(0, $arraySize - 1) as $i) { $arr[$i] = 255; }
+perf_end();
+$arr = null;
+
+echo "# Array_Sint16($arraySize)".PHP_EOL;
+perf_begin();
+$arr = new Array_Sint16($arraySize);
+foreach (range(0, $arraySize - 1) as $i) { $arr[$i] = -255; }
 perf_end();
 $arr = null;
