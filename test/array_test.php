@@ -6,17 +6,32 @@ if (is_readable('vendor/autoload.php')) {
     require_once 'Array/UINT8.php';
 }
 
+$prev_mem = $prev_time = null;
 
-echo "SplFixedArray(1024)".PHP_EOL;
-$prev_mem = memory_get_usage();
-$arr = new SplFixedArray(1024);
-foreach (range(0, 1023) as $i) { $arr[$i] = 255; }
-echo memory_get_usage() - $prev_mem.PHP_EOL;
+$arraySize = 1024*1024;
+
+function perf_begin() {
+    global $prev_mem, $prev_time;
+    $prev_mem = memory_get_usage();
+    $prev_time = microtime(true);
+}
+
+function perf_end() {
+    global $prev_mem, $prev_time;
+    echo '  memory:'. (memory_get_usage() - $prev_mem )  . PHP_EOL;
+    echo '  time:'  . (microtime(true)    - $prev_time). PHP_EOL;
+}
+
+echo "# SplFixedArray($arraySize)".PHP_EOL;
+perf_begin();
+$arr = new SplFixedArray($arraySize);
+foreach (range(0, $arraySize - 1) as $i) { $arr[$i] = 255; }
+perf_end();
 $arr = null;
 
-echo "Array_UINT8(1024)".PHP_EOL;
-$prev_mem = memory_get_usage();
-$arr = new Array_UINT8(1024);
-foreach (range(0, 1023) as $i) { $arr[$i] = 255; }
-echo memory_get_usage() - $prev_mem.PHP_EOL;
+echo "# Array_UINT8(1024)".PHP_EOL;
+perf_begin();
+$arr = new Array_UINT8($arraySize);
+foreach (range(0, $arraySize - 1) as $i) { $arr[$i] = 255; }
+perf_end();
 $arr = null;
