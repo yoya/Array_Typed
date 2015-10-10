@@ -1,6 +1,11 @@
 <?php
 
-require_once 'Array/UINT8.php';
+if (is_readable('vendor/autoload.php')) {
+    require 'vendor/autoload.php';
+} else {
+    require_once 'Array/UINT8.php';
+}
+
 
 echo "SplFixedArray(1024)".PHP_EOL;
 $prev_mem = memory_get_usage();
