@@ -2,6 +2,7 @@
 
 /*
   (c) 2015/10/10 yoya@awm.jp
+  Array_Typed version 1.0.0
 */
 
 abstract class Array_Typed implements ArrayAccess {
