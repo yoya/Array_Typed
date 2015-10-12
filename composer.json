@@ -15,9 +15,9 @@
         "php": ">=5.3.0"
     },
     "autoload": {
-        "psr-0": { "Array_Uint8": "." }
-        "psr-0": { "Array_Sint8": "." }
-        "psr-0": { "Array_Uint16": "." }
+        "psr-0": { "Array_Uint8": "." },
+        "psr-0": { "Array_Sint8": "." },
+        "psr-0": { "Array_Uint16": "." },
         "psr-0": { "Array_Sint16": "." }
     }
 }
