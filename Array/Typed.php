@@ -2,7 +2,7 @@
 
 /*
   (c) 2015/10/10 yoya@awm.jp
-  Array_Typed version 1.0.3
+  Array_Typed version 1.0.4
 */
 
 abstract class Array_Typed implements ArrayAccess, Countable, Iterator {
