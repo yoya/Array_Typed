@@ -5,13 +5,15 @@
   Array_Typed version 1.0.3
 */
 
-abstract class Array_Typed implements ArrayAccess, Countable {
+abstract class Array_Typed implements ArrayAccess, Countable, Iterator {
     protected $container;
     protected $arraySize;
+    private $iterPos;
     // protected $typeSize;
     function __construct($n) {
         $this->arraySize = $n;
         $this->container = str_repeat("\0",  $n * $this->typeSize);
+        $this->iterPos = 0;
     }
     //
     function toArray() {
@@ -36,6 +38,22 @@ abstract class Array_Typed implements ArrayAccess, Countable {
     // Countable
     public function count() {
         return $this->arraySize;
+    }
+    // Iterator
+    public function rewind() {
+        $this->iterPos = 0;
+    }
+    public function current() {
+        return $this->_offsetGet($this->iterPos);
+    }
+    public function key() {
+        return $this->iterPos;
+    }
+    function next() {
+        $this->iterPos++;
+    }
+    function valid() {
+        return $this->offsetExists($this->iterPos);
     }
     //
     public function offsetExists($offset) {
