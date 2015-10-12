@@ -5,7 +5,7 @@
   Array_Typed version 1.0.3
 */
 
-abstract class Array_Typed implements ArrayAccess {
+abstract class Array_Typed implements ArrayAccess, Countable {
     protected $container;
     protected $arraySize;
     // protected $typeSize;
@@ -31,6 +31,10 @@ abstract class Array_Typed implements ArrayAccess {
         return $newArr;
     }
     public function getSize() {
+        return $this->arraySize;
+    }
+    // Countable
+    public function count() {
         return $this->arraySize;
     }
     //
