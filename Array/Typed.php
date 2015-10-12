@@ -43,7 +43,8 @@ abstract class Array_Typed implements ArrayAccess {
     public abstract function _offsetGet($offset);
     public function offsetGet($offset) {
         if ($this->offsetExists($offset) === false) {
-            trigger_error("Undefined Index offset:$offset", E_USER_NOTICE);
+            $trace0 = debug_backtrace()[0];
+            trigger_error("Undefined Index offset:$offset at {$trace0['file']}:{$trace0['line']}", E_USER_NOTICE);
             return NULL;
         }
         return $this->_offsetGet($offset);
