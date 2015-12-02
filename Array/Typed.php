@@ -121,7 +121,7 @@ abstract class Array_Typed implements ArrayAccess, Countable, Iterator
 
         return implode($glue, $arr);
     }
-    public function shuffle($glue)
+    public function shuffle()
     {
         $count = $this->arraySize;
         $arr = $this->toArray();
