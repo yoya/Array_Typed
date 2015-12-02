@@ -1,11 +1,12 @@
 <?php
 
-/*
-  (c) 2015/10/10 yoya@awm.jp
-*/
-
 require_once __DIR__.'/Uint16.php';
 
+/**
+ * @author    yoya <yoya@awm.jp>
+ * @copyright 2015 yoya
+ * @license   MIT
+ */
 class Array_Sint16 extends Array_Uint16
 {
     public function _offsetGet($offset)

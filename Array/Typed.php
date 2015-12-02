@@ -1,10 +1,10 @@
 <?php
 
-/*
-  (c) 2015/10/10 yoya@awm.jp
-  Array_Typed version 1.0.4
-*/
-
+/**
+ * @author    yoya <yoya@awm.jp>
+ * @copyright 2015 yoya
+ * @license   MIT
+ */
 abstract class Array_Typed implements ArrayAccess, Countable, Iterator
 {
     protected $container;
