@@ -6,20 +6,25 @@
 
 require_once __DIR__.'/Typed.php';
 
-class Array_Uint16 extends Array_Typed {
+class Array_Uint16 extends Array_Typed
+{
     protected $typeSize = 2; // int16
-    function __construct($count) {
+    public function __construct($count)
+    {
         parent::__construct($count);
     }
-    public function _offsetGet($offset) {
+    public function _offsetGet($offset)
+    {
         $o = $this->containerSize($offset);
         $value = ord($this->container[$o++]);
         $value = ($value << 8) + ord($this->container[$o]);
+
         return $value;
     }
-    public function _offsetSet($offset, $value) {
+    public function _offsetSet($offset, $value)
+    {
         $o = $this->containerSize($offset);
         $this->container[$o++] = chr(($value >> 8) & 0xff);
-        $this->container[$o]   = chr( $value       & 0xff);
+        $this->container[$o] = chr($value       & 0xff);
     }
 }
