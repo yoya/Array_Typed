@@ -18,5 +18,8 @@
         "psr-0": {
             "Array" : "."
 	}
+    },
+    "scripts": {
+        "test": "echo test/*.php | xargs -n1 php"
     }
 }
