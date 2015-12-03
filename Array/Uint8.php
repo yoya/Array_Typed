@@ -1,21 +1,25 @@
 <?php
 
-/*
-  (c) 2015/10/10 yoya@awm.jp
-*/
-
 require_once __DIR__.'/Typed.php';
 
-class Array_Uint8 extends Array_Typed {
+/**
+ * @author    yoya <yoya@awm.jp>
+ * @copyright 2015 yoya
+ * @license   MIT
+ */
+class Array_Uint8 extends Array_Typed
+{
     protected $typeSize = 1; // int8
-    function __construct($count) {
+    public function __construct($count)
+    {
         parent::__construct($count);
     }
-    public function _offsetGet($offset) {
+    public function _offsetGet($offset)
+    {
         return ord($this->container[$offset]);
     }
-    public function _offsetSet($offset, $value) {
+    public function _offsetSet($offset, $value)
+    {
         $this->container[$offset] = chr($value);
     }
 }
-

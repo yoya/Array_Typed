@@ -7,4 +7,4 @@ if (is_readable('vendor/autoload.php')) {
 }
 
 $a = Array_Uint8::fromArray(range(0, 9));
-var_dump($a->join(","));
+var_dump($a->join(','));
