@@ -9,6 +9,7 @@ if (is_readable('vendor/autoload.php')) {
 
 $prev_mem = $prev_time = null;
 
+ini_set('memory_limit', -1);
 $arraySize = 1024 * 1024;
 
 function perf_begin()
